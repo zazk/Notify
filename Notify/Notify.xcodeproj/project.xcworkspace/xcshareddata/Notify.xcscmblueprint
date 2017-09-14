@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "99458bda-55b9-11e6-ac4b-012dc701f577++5431",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "99458bda-55b9-11e6-ac4b-012dc701f577++5431" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "99458bda-55b9-11e6-ac4b-012dc701f577++5431" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0E002751-0F6D-42A2-9717-95061D5E8986",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "99458bda-55b9-11e6-ac4b-012dc701f577++5431" : "ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Notify",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Notify\/Notify\/Notify.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/aolideas.svn.beanstalkapp.com\/bila",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99458bda-55b9-11e6-ac4b-012dc701f577++5431"
+    }
+  ]
+}
