@@ -65,6 +65,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        if #available(iOS 10, *) {
+            connectToFcm()
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+ 
+    
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        completionHandler(UIBackgroundFetchResult.newData)
+        
+        let gcmMessageIDKey = userInfo["gcm.message_id"]
+        // Print message ID.
+        print("Message ID: \(gcmMessageIDKey!)")
+        
+        // Print full message.
+        print("%@", userInfo)
+        
+        if let messageID = gcmMessageIDKey {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+    
+    
+    
     var applicationStateString: String {
         if UIApplication.shared.applicationState == .active {
             return "active"
