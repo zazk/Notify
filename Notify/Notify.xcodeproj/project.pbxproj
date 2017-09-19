@@ -15,6 +15,7 @@
 		CE057FAC1F6AF897005C3AE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE057FAA1F6AF897005C3AE9 /* LaunchScreen.storyboard */; };
 		CE057FB71F6AF897005C3AE9 /* NotifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE057FB61F6AF897005C3AE9 /* NotifyTests.swift */; };
 		CE057FC21F6AF898005C3AE9 /* NotifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE057FC11F6AF898005C3AE9 /* NotifyUITests.swift */; };
+		CEBBCBA21F70B092002BEED5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBBCBA11F70B092002BEED5 /* Images.xcassets */; };
 		CEEA64131F6B8F8B003CF02E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CEEA64121F6B8F8B003CF02E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		CE057FBD1F6AF897005C3AE9 /* NotifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE057FC11F6AF898005C3AE9 /* NotifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyUITests.swift; sourceTree = "<group>"; };
 		CE057FC31F6AF898005C3AE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEBBCBA11F70B092002BEED5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CEEA64011F6B6CBA003CF02E /* Notify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Notify.entitlements; sourceTree = "<group>"; };
 		CEEA64121F6B8F8B003CF02E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8B1C8B9A260ABB48A9734B5 /* Pods-Notify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Notify/Pods-Notify.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		CE057FA01F6AF897005C3AE9 /* Notify */ = {
 			isa = PBXGroup;
 			children = (
+				CEBBCBA11F70B092002BEED5 /* Images.xcassets */,
 				CEEA64121F6B8F8B003CF02E /* GoogleService-Info.plist */,
 				CEEA64011F6B6CBA003CF02E /* Notify.entitlements */,
 				CE057FA11F6AF897005C3AE9 /* AppDelegate.swift */,
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE057FAC1F6AF897005C3AE9 /* LaunchScreen.storyboard in Resources */,
+				CEBBCBA21F70B092002BEED5 /* Images.xcassets in Resources */,
 				CEEA64131F6B8F8B003CF02E /* GoogleService-Info.plist in Resources */,
 				CE057FA91F6AF897005C3AE9 /* Assets.xcassets in Resources */,
 				CE057FA71F6AF897005C3AE9 /* Main.storyboard in Resources */,

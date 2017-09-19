@@ -122,6 +122,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // the FCM registration token.
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
+        let   tokenString = deviceToken.reduce("", {$0 + String(format: "%02X",    $1)})
+        print("deviceTokenString: \(tokenString)")
+        
+        //Send Device Token
+        
+        var request = URLRequest(url: URL(string: "http://w.areminds.com/api.php")!)
+        request.httpMethod = "POST"
+        let postString = "token=\(tokenString)"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+                
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
+        }
+        task.resume()
+        
         
         // With swizzling disabled you must set the APNs token here.
         // Messaging.messaging().apnsToken = deviceToken
@@ -160,49 +186,25 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(response.notification.request.content.body)
         let userInfo = response.notification.request.content.userInfo
-        // Print message ID.
-        if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message Foreground Clicked ID: \(messageID)")
-            
-            if let aps = userInfo["aps"] as? NSDictionary {
-                if let alert = aps["url"] as? NSDictionary {
-                    print("URL Message Dictionary: \(alert)")
-                    
-                    if (alert["message"] as? NSString) != nil {
-                        //Do stuff
-                        
-                        print("Alert Message String: \(alert)")
-                    }
-                } else if let alert = aps["url"] as? NSString {
-                    //Do stuff
-                    
-                    print("Alert String: \(alert)")
-                }
-                
-                print("URL Message Dictionary:APS: \(aps)")
-            }
-            if let url = userInfo["url"] as? NSString {
-
-                print("URL Message String:APS: \(url)")
-                // Move to a background thread to do some long running work
-                DispatchQueue.global(qos: .userInitiated).async {
-                    // Bounce back to the main thread to update the UI
-                    DispatchQueue.main.async {
-                        guard let url = URL(string: url as String) else {
-                            return //be safe
-                        }
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                        
-                    }
-                }
-            }
-            
-
-        }
         
-        // Print full message.
-        print(userInfo)
+        if let url = userInfo["url"] as? NSString {
+            
+            print("URL Message String:APS: \(url)")
+            
+            // Move to a background thread to do some long running work
+            DispatchQueue.global(qos: .userInitiated).async {
+                // Bounce back to the main thread to update the UI
+                DispatchQueue.main.async {
+                    guard let url = URL(string: url as String) else {
+                        return //be safe
+                    }
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    
+                }
+            }
+        }
         
         completionHandler()
     }
